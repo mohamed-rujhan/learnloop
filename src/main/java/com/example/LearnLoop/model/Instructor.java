@@ -37,7 +37,7 @@ public class Instructor {
     @NonNull
     private String bio;
 
-    private int rating;
+    private int instructor_rating;
 
 
 
