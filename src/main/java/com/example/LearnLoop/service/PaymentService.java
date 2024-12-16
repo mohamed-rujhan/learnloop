@@ -1,14 +1,8 @@
 package com.example.LearnLoop.service;
 
-import java.util.List;
-
-import com.example.LearnLoop.model.Payment;
+import com.example.LearnLoop.DTO.PaymentRequest;
+import com.example.LearnLoop.controller.PaymentResponse;
 
 public interface PaymentService {
-
-    Payment createPayment(Payment payment);
-    List<Payment> getAllPayment();
-    Payment getPaymentById(String id);
-    Payment updatePayment(String id ,Payment payment);
-    void deletePayment(String id);
+    PaymentResponse processPayment(PaymentRequest request);
 }
