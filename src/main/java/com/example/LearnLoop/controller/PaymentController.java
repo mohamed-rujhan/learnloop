@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.LearnLoop.DTO.PaymentRequest;
+import com.example.LearnLoop.DTO.PaymentResponse;
 import com.example.LearnLoop.service.PaymentService;
 
 @RestController
