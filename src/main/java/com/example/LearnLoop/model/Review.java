@@ -1,18 +1,20 @@
 package com.example.LearnLoop.model;
 
-import java.security.Timestamp;
-import org.springframework.data.mongodb.core.mapping.Document;
+//import java.sql.Timestamp;
+
+import org.springframework.data.annotation.Id;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "Reviews")
+@NoArgsConstructor
 public class Review {
 
-    private String reviewId;
+    @Id
+    private String review_id;
 
     private String student_id;
 
@@ -22,7 +24,6 @@ public class Review {
 
     private String comment;
 
-    private Timestamp review_date;
-    
-}
+    //private Timestamp review_date;
 
+}

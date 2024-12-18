@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import com.example.LearnLoop.model.Instructor;
 import com.example.LearnLoop.repository.InstructorRepository;
 import com.example.LearnLoop.service.InstructorService;
@@ -49,4 +50,3 @@ public class InstructorServiceImpl implements InstructorService{
     instructorRepository.deleteById(instructorId);
     }
 }
-

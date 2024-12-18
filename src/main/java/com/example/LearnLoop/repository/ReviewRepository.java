@@ -1,5 +1,9 @@
 package com.example.LearnLoop.repository;
 
-public interface ReviewRepository {
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.example.LearnLoop.model.Review;
+
+public interface ReviewRepository extends MongoRepository<Review, String>{
 
 }
