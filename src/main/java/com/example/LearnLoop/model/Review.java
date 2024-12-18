@@ -2,7 +2,6 @@ package com.example.LearnLoop.model;
 
 import java.security.Timestamp;
 import org.springframework.data.mongodb.core.mapping.Document;
-import jakarta.websocket.Decoder.Text;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,7 +20,7 @@ public class Review {
 
     private int rating;
 
-    private Text comment;
+    private String comment;
 
     private Timestamp review_date;
     
