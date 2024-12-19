@@ -27,14 +27,14 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<Student> getAllStudents() {
+    public List<Student> getAllStudent() {
         return studentRepository.findAll();
     }
 
     @Override
     public Student updateStudent(String studentId, Student student) {
         if (studentRepository.existsById(studentId)) {
-            student.setStudent_id(studentId); 
+            student.setStudentId(studentId);
             return studentRepository.save(student);
         }
         return null;
