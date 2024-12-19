@@ -7,7 +7,7 @@ public interface StudentService {
 
     Student createStudent(Student student);
 
-    List<Student> getAllStudents();
+    List<Student> getAllStudent();
 
     Student getStudentById(String id);
 
@@ -15,4 +15,3 @@ public interface StudentService {
 
     void deleteStudent(String id);
 }
-
