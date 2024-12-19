@@ -23,8 +23,8 @@ public class ReviewServiceImpl implements ReviewService{
     }
     
     @Override
-    public Review getReviewById(String review_id){
-        Optional<Review> review=reviewRepository.findById(review_id);
+    public Review getReviewById(String reviewId){
+        Optional<Review> review=reviewRepository.findById(reviewId);
         return review.orElse(null);   
     }
 
@@ -34,19 +34,19 @@ public class ReviewServiceImpl implements ReviewService{
     }
 
     @Override
-    public Review updateReview(String review_id, Review review) 
+    public Review updateReview(String reviewId, Review review) 
     {
-    if (reviewRepository.existsById(review_id)) 
+    if (reviewRepository.existsById(reviewId)) 
     {
-    review.setReview_id(review_id);
+    review.setReviewId(reviewId);
     return reviewRepository.save(review);
     }
     return null; 
     } 
 
     @Override
-    public void deleteReview(String review_id) {
-    reviewRepository.deleteById(review_id);
+    public void deleteReview(String reviewId) {
+    reviewRepository.deleteById(reviewId);
     }
 
 }
