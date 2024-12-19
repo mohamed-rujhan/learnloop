@@ -16,13 +16,11 @@ import com.example.LearnLoop.model.Student;
 import com.example.LearnLoop.service.StudentService;
 
 @RestController
-@RequestMapping({"/api/students"})
+@RequestMapping("/api/students")
 public class StudentController {
 
     @Autowired
     private StudentService studentService;
-
-    public StudentController() {}
 
     @PostMapping
     public ResponseEntity<Student> createStudent(@RequestBody Student student) {
@@ -30,7 +28,7 @@ public class StudentController {
         return ResponseEntity.ok(createdStudent);
     }
 
-    @GetMapping({"/{studentId}"})
+    @GetMapping("/{studentId}")
     public ResponseEntity<Student> getStudentById(@PathVariable String studentId) {
         Student student = this.studentService.getStudentById(studentId);
         return student != null ? ResponseEntity.ok(student) :
@@ -39,11 +37,11 @@ public class StudentController {
 
     @GetMapping
     public ResponseEntity<List<Student>> getAllStudents() {
-        List<Student> students = this.studentService.getAllStudents();
+        List<Student> students = this.studentService.getAllStudent();
         return ResponseEntity.ok(students);
     }
 
-    @PutMapping({"/{studentId}"})
+    @PutMapping("/{studentId}")
     public ResponseEntity<Student> updateStudent(@PathVariable String studentId, @RequestBody Student student) {
         Student updatedStudent = this.studentService.updateStudent(studentId, student);
         return updatedStudent != null ? ResponseEntity.ok(updatedStudent) :
