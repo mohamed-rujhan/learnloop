@@ -7,10 +7,9 @@ import com.example.LearnLoop.model.Review;
 public interface ReviewService {
 
     Review createReview(Review review);
-    Review getReviewById(String review_id);
+    Review getReviewById(String reviewId);
     List<Review> getAllReviews();
-    Review updateReview (String review_id, Review review);
-    void deleteReview(String review_id);
-
+    Review updateReview (String reviewId, Review review);
+    void deleteReview(String reviewId);
 
 }
