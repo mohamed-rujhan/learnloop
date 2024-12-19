@@ -32,10 +32,10 @@ public class ReviewController {
         return ResponseEntity.ok(createdReview);
     }
 
-    @GetMapping({"/{review_id}"})
-    public ResponseEntity<Review> getReviewById(@PathVariable String review_id) 
+    @GetMapping({"/{reviewId}"})
+    public ResponseEntity<Review> getReviewById(@PathVariable String reviewId) 
     {
-    Review review = this.reviewService.getReviewById(review_id);
+    Review review = this.reviewService.getReviewById(reviewId);
     return review != null ? ResponseEntity.ok(review) :
     ResponseEntity.notFound().build();
     }
@@ -47,18 +47,18 @@ public class ReviewController {
     return ResponseEntity.ok(review);
     }
 
-    @PutMapping({"/{review_id}"})
-    public ResponseEntity<Review> updateReview(@PathVariable String review_id,@RequestBody Review review) 
+    @PutMapping({"/{reviewId}"})
+    public ResponseEntity<Review> updateReview(@PathVariable String reviewId,@RequestBody Review review) 
     {
-    Review updatedReview = this.reviewService.updateReview(review_id, review);
+    Review updatedReview = this.reviewService.updateReview(reviewId, review);
     return updatedReview != null ? ResponseEntity.ok(updatedReview) :
     ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping({"/{review_id}"})
-    public ResponseEntity<Void> deleteReview(@PathVariable String review_id) 
+    @DeleteMapping({"/{reviewId}"})
+    public ResponseEntity<Void> deleteReview(@PathVariable String reviewId) 
     {
-    this.reviewService.deleteReview(review_id);
+    this.reviewService.deleteReview(reviewId);
     return ResponseEntity.noContent().build();
     }
 
