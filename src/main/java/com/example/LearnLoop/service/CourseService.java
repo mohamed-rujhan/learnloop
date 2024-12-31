@@ -1,18 +1,18 @@
 package com.example.LearnLoop.service;
 
 import java.util.List;
-import com.example.LearnLoop.model.Courses;
+import com.example.LearnLoop.model.Course;
 
 
 public interface CourseService {
 
-    Courses createCourse(Courses course);
+    Course createCourse(Course course);
 
-    List<Courses> getAllCourses();
+    List<Course> getAllCourses();
 
-    Courses getCourseById(String id);
+    Course getCourseById(String id);
 
-    Courses updateCourse(String id, Courses course);
+    Course updateCourse(String id, Course course);
 
     void deleteCourse(String id);
 }
