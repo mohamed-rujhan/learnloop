@@ -1,7 +1,7 @@
 package com.example.LearnLoop.service.Impl;
 
-import com.example.LearnLoop.pmodel.Payment;
-import com.example.LearnLoop.prepository.PaymentRepository;
+import com.example.LearnLoop.model.Payment;
+import com.example.LearnLoop.repository.PaymentRepository;
 import com.example.LearnLoop.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

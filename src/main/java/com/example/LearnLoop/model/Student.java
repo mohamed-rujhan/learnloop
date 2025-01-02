@@ -1,4 +1,4 @@
-package com.example.LearnLoop.pmodel;
+package com.example.LearnLoop.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

@@ -1,4 +1,4 @@
-package com.example.LearnLoop.pmodel;
+package com.example.LearnLoop.model;
 
 //import java.security.Timestamp;
 

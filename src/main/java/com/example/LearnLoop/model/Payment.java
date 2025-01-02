@@ -1,4 +1,4 @@
-package com.example.LearnLoop.pmodel;
+package com.example.LearnLoop.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -13,19 +13,20 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Document(collection="Lesson")
-public class Lesson {
+@Document(collection="Payment")
+public class Payment {
  @Id
-private String lessonId;
+private String paymentId;
+//@NonNull
+private String studentId;
 //@NonNull
 private String courseId;
 //@NonNull
-private String title;
+private float amount;
 //@NonNull
-private String content;
+//private Timestamp paymentDate;
 //@NonNull
-private int duration;
-
+private String PaymentStatus;
 
  
 }
