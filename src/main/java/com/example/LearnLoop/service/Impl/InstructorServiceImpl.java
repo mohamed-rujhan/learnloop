@@ -1,12 +1,9 @@
 package com.example.LearnLoop.service.Impl;
 
-
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-
 import com.example.LearnLoop.model.Instructor;
 import com.example.LearnLoop.repository.InstructorRepository;
 import com.example.LearnLoop.service.InstructorService;
