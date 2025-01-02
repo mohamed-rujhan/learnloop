@@ -18,11 +18,11 @@ public class Student {
  @Id
 private String studentId;
 //@NonNull
-private String first_name;
+private String firstName;
 //@NonNull
-private String last_name;
+private String lastName;
 //@NonNull
-private String username;
+private String userName;
 //@NonNull
 private String email;
 //@NonNull
