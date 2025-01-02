@@ -36,9 +36,9 @@ public class StudentController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Student>> getAllStudents() {
-        List<Student> students = this.studentService.getAllStudent();
-        return ResponseEntity.ok(students);
+    public ResponseEntity<List<Student>> getAllStudent() {
+        List<Student> student = this.studentService.getAllStudent();
+        return ResponseEntity.ok(student);
     }
 
     @PutMapping("/{studentId}")
