@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class Course {
 @Id
 private String courseId;
-//@NonNull
+
 private String title;
 //@NonNull
 private String description;
