@@ -33,9 +33,9 @@ public class CourseController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Course>> getAllCourses() {
-        List<Course> courses = this.courseService.getAllCourses();
-        return ResponseEntity.ok(courses);
+    public ResponseEntity<List<Course>> getAllCourse() {
+        List<Course> course = this.courseService.getAllCourse();
+        return ResponseEntity.ok(course);
     }
 
     @PutMapping("/{courseId}")
