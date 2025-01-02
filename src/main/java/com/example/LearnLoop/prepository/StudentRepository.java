@@ -1,8 +1,8 @@
-package com.example.LearnLoop.repository;
+package com.example.LearnLoop.prepository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.example.LearnLoop.model.Student;
+import com.example.LearnLoop.pmodel.Student;
 
 public interface StudentRepository extends MongoRepository<Student,String>  {
 

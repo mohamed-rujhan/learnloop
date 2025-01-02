@@ -1,7 +1,8 @@
 package com.example.LearnLoop.service;
 
 import java.util.List;
-import com.example.LearnLoop.model.Course;
+
+import com.example.LearnLoop.pmodel.Course;
 
 
 public interface CourseService {

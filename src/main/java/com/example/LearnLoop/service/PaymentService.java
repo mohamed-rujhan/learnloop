@@ -1,7 +1,8 @@
 package com.example.LearnLoop.service;
 
 import java.util.List;
-import com.example.LearnLoop.model.Payment;
+
+import com.example.LearnLoop.pmodel.Payment;
 
 public interface PaymentService {
 

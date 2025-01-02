@@ -1,7 +1,7 @@
 package com.example.LearnLoop.service.Impl;
 
-import com.example.LearnLoop.model.Lesson;
-import com.example.LearnLoop.repository.LessonRepository;
+import com.example.LearnLoop.pmodel.Lesson;
+import com.example.LearnLoop.prepository.LessonRepository;
 import com.example.LearnLoop.service.LessonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,14 +1,13 @@
 
-package com.example.LearnLoop.controller;
+package com.example.LearnLoop.pcontroller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.LearnLoop.model.Course;
-
-import com.example.LearnLoop.service.CourseService;
+import com.example.LearnLoop.pmodel.Course;
+import com.example.LearnLoop.pservice.CourseService;
 
 @RestController
 @RequestMapping("/api/courses")
