@@ -8,7 +8,7 @@ public interface CourseService {
 
     Course createCourse(Course course);
 
-    List<Course> getAllCourses();
+    List<Course> getAllCourse();
 
     Course getCourseById(String id);
 
