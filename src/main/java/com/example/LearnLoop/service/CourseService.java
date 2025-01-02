@@ -1,4 +1,4 @@
-package com.example.LearnLoop.ervice;
+package com.example.LearnLoop.service;
 
 import java.util.List;
 

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.LearnLoop.model.Lesson;
-import com.example.LearnLoop.pservice.LessonService;
+import com.example.LearnLoop.service.LessonService;
 
 @RestController
 @RequestMapping("/api/lesson")

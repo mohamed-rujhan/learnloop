@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.LearnLoop.model.Course;
-import com.example.LearnLoop.pservice.CourseService;
+import com.example.LearnLoop.service.CourseService;
 
 @RestController
 @RequestMapping("/api/courses")
