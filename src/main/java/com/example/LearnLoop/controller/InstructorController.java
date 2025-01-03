@@ -19,8 +19,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.media.Content;
-
-
 import com.example.LearnLoop.model.Instructor;
 import com.example.LearnLoop.service.FirebaseStorageService;
 import com.example.LearnLoop.service.InstructorService;
@@ -50,7 +48,6 @@ public class InstructorController {
     return instructor != null ? ResponseEntity.ok(instructor) :
     ResponseEntity.notFound().build();
     }
-
     @GetMapping
     public ResponseEntity<List<Instructor>> getAllInstructors() //get all instructors
     {
