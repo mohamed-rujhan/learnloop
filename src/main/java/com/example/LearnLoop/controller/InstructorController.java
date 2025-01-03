@@ -58,4 +58,4 @@ public class InstructorController {
     this.instructorService.deleteInstructor(instructorId);
     return ResponseEntity.noContent().build();
     }
-}
+git }
