@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collation = "Instructors")
+@Document(collection = "Instructors")
 public class Instructor {
 
     @Id
