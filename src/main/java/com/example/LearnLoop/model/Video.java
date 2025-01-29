@@ -19,6 +19,6 @@ public class Video{
     private int price;
     private String description;
     private String videoUrl;
-   // private Date uploadDate;
+   //private Date uploadDate;
     
 }
