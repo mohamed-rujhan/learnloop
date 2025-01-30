@@ -14,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-//import java.util.Date;
 import java.util.UUID;
 
 @Service
@@ -26,22 +25,26 @@ public class VideoServiceImpl implements VideoService {
     private static final String BUCKET_NAME = "power-cal.appspot.com";
 
     @Override
-    public Video uploadVideo(String title, int price, String description, MultipartFile file) {
+    public Video uploadVideo(String title, int price, String description, MultipartFile videoFile, MultipartFile coverImage) {
         try {
-            // Upload to Firebase Storage
-            String fileName = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
-            String firebaseUrl = uploadToFirebase(file, fileName);
+            // Upload video to Firebase Storage
+            String videoFileName = UUID.randomUUID().toString() + "_" + videoFile.getOriginalFilename();
+            String videoUrl = uploadToFirebase(videoFile, videoFileName);
+
+            // Upload cover image to Firebase Storage
+            String coverImageFileName = UUID.randomUUID().toString() + "_" + coverImage.getOriginalFilename();
+            String coverImageUrl = uploadToFirebase(coverImage, coverImageFileName);
 
             // Save to MongoDB
             Video video = new Video();
             video.setTitle(title);
             video.setPrice(price);
             video.setDescription(description);
-            video.setVideoUrl(firebaseUrl);
-            //video.setUploadDate((java.sql.Date) new Date(System.currentTimeMillis()));
+            video.setVideoUrl(videoUrl);
+            video.setCoverImageUrl(coverImageUrl); // Set cover image URL
             return videoRepository.save(video);
         } catch (IOException e) {
-            throw new RuntimeException("Failed to upload video", e);
+            throw new RuntimeException("Failed to upload video or cover image", e);
         }
     }
 

@@ -18,7 +18,8 @@ public class VideoController {
             @RequestParam("title") String title,
             @RequestParam("price") int price,
             @RequestParam("description") String description,
-            @RequestParam("file") MultipartFile file) {
-        return videoService.uploadVideo(title, price, description, file);
+            @RequestParam("videoFile") MultipartFile videoFile,
+            @RequestParam("coverImage") MultipartFile coverImage) {
+        return videoService.uploadVideo(title, price, description, videoFile, coverImage);
     }
 }

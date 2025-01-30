@@ -1,6 +1,5 @@
 package com.example.LearnLoop.model;
 
-//import java.sql.Date;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.AllArgsConstructor;
@@ -11,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(collection = "Videos")
-public class Video{
+public class Video {
 
     @Id
     private String id; 
@@ -19,6 +18,5 @@ public class Video{
     private int price;
     private String description;
     private String videoUrl;
-   //private Date uploadDate;
-    
+    private String coverImageUrl; 
 }
