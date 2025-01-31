@@ -15,21 +15,5 @@ public class LearnLoopApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(LearnLoopApplication.class, args);
-
-        try {
-			FileInputStream serviceAccount =
-			new FileInputStream("src/main/resources/firebase/firebase-admins");
-		
-
-            FirebaseOptions options = FirebaseOptions.builder()
-                    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                    .setStorageBucket("your-project-id.appspot.com") // Your Firebase Storage bucket
-                    .build();
-
-            FirebaseApp.initializeApp(options);
-            System.out.println("Firebase initialized successfully!");
-        } catch (IOException e) {
-            System.err.println("Error initializing Firebase: " + e.getMessage());
-        }
     }
 }
