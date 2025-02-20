@@ -25,6 +25,10 @@ private String title;
 private String content;
 //@NonNull
 private int duration;
+ public void setLessonId(String lessonId) {
+  this.lessonId = lessonId;
+ }
+
 
 
  

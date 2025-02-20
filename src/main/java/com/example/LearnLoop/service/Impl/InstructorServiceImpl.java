@@ -3,9 +3,9 @@ package com.example.LearnLoop.service.Impl;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.example.LearnLoop.model.Instructor;
-
 import com.example.LearnLoop.repository.InstructorRepository;
 import com.example.LearnLoop.service.InstructorService;
 
@@ -15,9 +15,17 @@ public class InstructorServiceImpl implements InstructorService{
 
     @Autowired
     private InstructorRepository instructorRepository;
+    private final PasswordEncoder passwordEncoder;
+
+    public InstructorServiceImpl(InstructorRepository instructorRepository,PasswordEncoder passwordEncoder)
+    {
+        this.instructorRepository=instructorRepository;
+        this.passwordEncoder=passwordEncoder;
+    }
 
     @Override
     public Instructor createInstructor(Instructor instructor){
+        instructor.setPassword(passwordEncoder.encode(instructor.getPassword()));
         return instructorRepository.save(instructor);
     }
     
@@ -46,10 +54,5 @@ public class InstructorServiceImpl implements InstructorService{
     @Override
     public void deleteInstructor(String instructorId) {
     instructorRepository.deleteById(instructorId);
-    }
-
-    @Override
-    public Instructor findByUserNameAndPassword(String userName, String password) {
-        return instructorRepository.findByUserNameAndPassword(userName, password);
     }
 }
