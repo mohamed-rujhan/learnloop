@@ -22,11 +22,17 @@ private String firstName;
 //@NonNull
 private String lastName;
 //@NonNull
-private String userName;
+private String username;
 //@NonNull
 private String email;
 //@NonNull
 private String password;
+
+public Student(String username,String password)
+{
+    this.username=username;
+    this.password=password;
+}
 
  public String getStudentId() {
   return studentId;
@@ -35,4 +41,20 @@ private String password;
  public void setStudentId(String studentId) {
   this.studentId = studentId;
  }
+ 
+ public String getUsername() { 
+    return username;
+}
+
+public void setUsername(String username) {
+    this.username = username;
+}
+
+public String getPassword() {  
+    return password;
+}
+
+public void setPassword(String password) {
+    this.password = password;
+}
 }

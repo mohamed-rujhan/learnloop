@@ -25,6 +25,10 @@ public class Enrollment {
    //private Timestamp enrollmentDate;
 
     private String completionStatus;
+    public void setEnrollmentId(String enrollmentId) {
+        this.enrollmentId = enrollmentId;
+    }
+
 
 
 }

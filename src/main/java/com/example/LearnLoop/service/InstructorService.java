@@ -12,6 +12,6 @@ public interface InstructorService {
     List<Instructor> getAllInstructors();
     Instructor updateInstructor (String instructorId, Instructor instructor);
     void deleteInstructor(String instructorId);
-    Instructor findByUserNameAndPassword(String userName, String password);
+
 
 }
