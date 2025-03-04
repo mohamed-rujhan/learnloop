@@ -36,6 +36,12 @@ public class SecurityConfig {
                 "/api/auth/login/**",     // Allow authentication endpoints
                     "/api/instructors/**", // Allow instructor registration
                     "/api/students/**",    // Allow student registration
+                    "/api/payment/**",
+                    "/api/lesson/**",
+                    "/api/enrollment/**",
+                    "/api/courses/**",
+                    "/api/reviews/**",
+                    "/api/videos/**",
                     "/v3/api-docs/**",  // Allow Swagger API docs
                     "/swagger-ui/**",   // Allow Swagger UI
                     "/swagger-ui.html"  // Allow Swagger UI HTML page
