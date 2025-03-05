@@ -7,7 +7,9 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,9 +17,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
-
-    @Autowired
-    private AuthenticationManager authenticationManager;
 
     @Autowired
     private JwtUtil jwtUtil;
@@ -30,12 +29,13 @@ public class AuthController {
                                      @RequestParam String password,
                                      @RequestParam String role) {  
         try {
-            Authentication authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(username, password)
-            );
-
-            // 🔥 Call loadUserByUsernameAndRole instead of loadUserByUsername
+            // 🔥 Manually authenticate the user by calling loadUserByUsernameAndRole
             UserDetails userDetails = userDetailsService.loadUserByUsernameAndRole(username, role);
+
+            // 🔥 Check if the password matches
+            if (!new BCryptPasswordEncoder().matches(password, userDetails.getPassword())) {
+                throw new BadCredentialsException("Invalid password");
+            }
 
             // 🔥 Generate JWT token with role
             String token = jwtUtil.generateToken(username, role);
