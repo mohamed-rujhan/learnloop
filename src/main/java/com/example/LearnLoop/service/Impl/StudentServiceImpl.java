@@ -4,6 +4,7 @@ import com.example.LearnLoop.model.Student;
 import com.example.LearnLoop.repository.StudentRepository;
 import com.example.LearnLoop.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,9 +15,18 @@ public class StudentServiceImpl implements StudentService {
 
     @Autowired
     private StudentRepository studentRepository;
+    @Autowired
+    private final PasswordEncoder passwordEncoder;
+
+    public StudentServiceImpl(StudentRepository studentRepository, PasswordEncoder passwordEncoder) {
+        this.studentRepository = studentRepository;
+        this.passwordEncoder = passwordEncoder;
+    }   
+
 
     @Override
     public Student createStudent(Student student) {
+        student.setPassword(passwordEncoder.encode(student.getPassword()));
         return studentRepository.save(student);
     }
 

@@ -30,8 +30,13 @@ private float price;
 private String instructorId;
 
 //private Timestamp createdAt;
+public void setCourseId(String courseId) {
+    this.courseId = courseId;
+}
+
 
 }
+
 
 
 
