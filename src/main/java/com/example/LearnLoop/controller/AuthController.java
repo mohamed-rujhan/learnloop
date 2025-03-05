@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import com.example.LearnLoop.model.LoginRequest;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,10 +26,17 @@ public class AuthController {
     private CustomUserDetailsService userDetailsService;
 
     @PostMapping("/login")
-    public Map<String, String> login(@RequestParam String username, 
-                                     @RequestParam String password,
-                                     @RequestParam String role) {  
-        try {
+public Map<String, String> login(@RequestBody LoginRequest loginRequest) {  
+    try {
+        // Extract credentials from the request body
+        String username = loginRequest.getUsername();
+        String password = loginRequest.getPassword();
+        String role = loginRequest.getRole();
+
+        // Validate credentials
+        if (username == null || password == null || role == null) {
+            throw new IllegalArgumentException("Username, password, and role are required");
+        }
             // 🔥 Manually authenticate the user by calling loadUserByUsernameAndRole
             UserDetails userDetails = userDetailsService.loadUserByUsernameAndRole(username, role);
 
