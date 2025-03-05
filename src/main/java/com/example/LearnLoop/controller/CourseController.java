@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.LearnLoop.model.Course;
 import com.example.LearnLoop.service.CourseService;
 
+@CrossOrigin(origins = "http://localhost:5173") 
 @RestController
 @RequestMapping("/api/courses")
 public class CourseController {

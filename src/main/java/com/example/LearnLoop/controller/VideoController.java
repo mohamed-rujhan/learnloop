@@ -2,10 +2,12 @@ package com.example.LearnLoop.controller;
 
 import com.example.LearnLoop.model.Video;
 import com.example.LearnLoop.service.VideoService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin(origins = "http://localhost:5173") 
 @RestController
@@ -24,4 +26,10 @@ public class VideoController {
             @RequestParam("coverImage") MultipartFile coverImage) {
         return videoService.uploadVideo(title, price, description, videoFile, coverImage);
     }
+    
+    @GetMapping
+public List<Video> getAllVideos() {
+    return videoService.getAllVideos();
+}
+
 }
