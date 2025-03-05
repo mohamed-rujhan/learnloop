@@ -10,4 +10,5 @@ public interface VideoService {
     Video uploadVideo(String title, int price, String description, MultipartFile videoFile, MultipartFile coverImage);
 
     List<Video> getAllVideos();
+
 }
