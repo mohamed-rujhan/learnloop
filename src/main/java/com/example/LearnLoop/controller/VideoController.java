@@ -2,10 +2,9 @@ package com.example.LearnLoop.controller;
 
 import com.example.LearnLoop.model.Video;
 import com.example.LearnLoop.service.VideoService;
-
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -28,8 +27,17 @@ public class VideoController {
     }
     
     @GetMapping
-public List<Video> getAllVideos() {
+    public List<Video> getAllVideos() {
     return videoService.getAllVideos();
-}
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Video> getVideoById(@PathVariable String id) {
+        Video video = this.videoService.getVideoById(id);
+        return video != null ? ResponseEntity.ok(video) :
+        ResponseEntity.notFound().build();
+    }
+
+
 
 }

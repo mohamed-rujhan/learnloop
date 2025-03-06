@@ -65,5 +65,11 @@ public class VideoServiceImpl implements VideoService {
     public List<Video> getAllVideos() {
         return videoRepository.findAll();
     }
+
+    @Override
+    public Video getVideoById(String id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getVideoById'");
+    }
     
 }

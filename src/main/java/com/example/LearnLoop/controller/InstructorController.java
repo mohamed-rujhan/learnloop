@@ -38,6 +38,7 @@ public class InstructorController {
     return instructor != null ? ResponseEntity.ok(instructor) :
     ResponseEntity.notFound().build();
     }
+    
     @GetMapping
     public ResponseEntity<List<Instructor>> getAllInstructors() //get all instructors
     {

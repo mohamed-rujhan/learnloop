@@ -37,15 +37,15 @@ public Map<String, String> login(@RequestBody LoginRequest loginRequest) {
         if (username == null || password == null || role == null) {
             throw new IllegalArgumentException("Username, password, and role are required");
         }
-            // 🔥 Manually authenticate the user by calling loadUserByUsernameAndRole
+            // Manually authenticate the user by calling loadUserByUsernameAndRole
             UserDetails userDetails = userDetailsService.loadUserByUsernameAndRole(username, role);
 
-            // 🔥 Check if the password matches
+            // Check if the password matches
             if (!new BCryptPasswordEncoder().matches(password, userDetails.getPassword())) {
                 throw new BadCredentialsException("Invalid password");
             }
 
-            // 🔥 Generate JWT token with role
+            // Generate JWT token with role
             String token = jwtUtil.generateToken(username, role);
 
             Map<String, String> response = new HashMap<>();
