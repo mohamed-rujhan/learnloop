@@ -43,6 +43,7 @@ public class SecurityConfig {
                     "/api/reviews/**",
                     "/api/videos/**",
                     "/api/contact/send",
+                    "/api/contact",
                     "/v3/api-docs/**",  // Allow Swagger API docs
                     "/swagger-ui/**",   // Allow Swagger UI
                     "/swagger-ui.html"  // Allow Swagger UI HTML page

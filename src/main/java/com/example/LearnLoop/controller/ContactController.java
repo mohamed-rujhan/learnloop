@@ -9,8 +9,8 @@ import com.example.LearnLoop.model.ContactForm;
 import com.example.LearnLoop.service.EmailService;
 
 @RestController
-@RequestMapping("/api/contact")
 @CrossOrigin(origins = "http://localhost:5173") 
+@RequestMapping("/api/contact")
 public class ContactController {
 
     @Autowired
@@ -24,11 +24,13 @@ public class ContactController {
                     + "Email: " + contactForm.getEmail() + "\n"
                     + "Message: " + contactForm.getMessage();
 
-            // Send email to your email address
+            // Send email
             emailService.sendEmail("contact@example.com", subject, text);
 
+            // Return success response
             return ResponseEntity.ok("Message sent successfully!");
         } catch (Exception e) {
+            // Return error response
             return ResponseEntity.status(500).body("Failed to send message: " + e.getMessage());
         }
     }
