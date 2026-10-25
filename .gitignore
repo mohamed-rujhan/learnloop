@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Secrets & local files ###
+.env
+src/main/resources/firebase/
+*-firebase-adminsdk-*.json
+node_modules/

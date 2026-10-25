@@ -9,6 +9,7 @@ import com.google.cloud.storage.Bucket;
 import com.google.cloud.storage.Storage;
 import com.google.cloud.storage.StorageOptions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -23,7 +24,11 @@ public class VideoServiceImpl implements VideoService {
     @Autowired
     private VideoRepository videoRepository;
 
-    private static final String BUCKET_NAME = "power-cal.appspot.com";
+    @Value("${firebase.config.path}")
+    private String credentialsPath;
+
+    @Value("${firebase.bucket-name}")
+    private String bucketName;
 
     @Override
     public Video uploadVideo(String title, int price, String description, MultipartFile videoFile, MultipartFile coverImage) {
@@ -52,11 +57,11 @@ public class VideoServiceImpl implements VideoService {
     private String uploadToFirebase(MultipartFile file, String fileName) throws IOException {
         // Load Firebase credentials
         GoogleCredentials credentials = GoogleCredentials.fromStream(
-                new FileInputStream("src/main/resources/firebase/firebase-admins.json"));
+                new FileInputStream(credentialsPath));
         Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
 
         // Upload file to Firebase Storage
-        Bucket bucket = storage.get(BUCKET_NAME);
+        Bucket bucket = storage.get(bucketName);
         Blob blob = bucket.create(fileName, file.getBytes(), file.getContentType());
 
         return blob.getMediaLink();

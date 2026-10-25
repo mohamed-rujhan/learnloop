@@ -2,6 +2,7 @@ package com.example.LearnLoop.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,9 @@ public class ContactController {
     @Autowired
     private EmailService emailService;
 
+    @Value("${contact.email}")
+    private String contactEmail;
+
     @PostMapping("/send")
     public ResponseEntity<?> sendMessage(@RequestBody ContactForm contactForm) {
         try {
@@ -25,7 +29,7 @@ public class ContactController {
                     + "Message: " + contactForm.getMessage();
 
             // Send email
-            emailService.sendEmail("contact@example.com", subject, text);
+            emailService.sendEmail(contactEmail, subject, text);
 
             // Return success response
             return ResponseEntity.ok("Message sent successfully!");
